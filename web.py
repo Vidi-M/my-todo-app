@@ -4,10 +4,15 @@ import functions
 todos = functions.get_todos()
 
 
+def clear_text():
+    st.session_state["new_todo"] = ""
+
+
 def add_todo():
     todo_local = st.session_state['new_todo'] + "\n"
     todos.append(todo_local)
     functions.write_todos(todos)
+    st.session_state["new_todo"] = ""
 
 
 st.title("My TODO App")
